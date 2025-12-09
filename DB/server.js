@@ -159,7 +159,7 @@ app.post("/UserCheck", async (req, res) => {
       maxAge: 10 * 60 * 1000,
       secure: true,
       sameSite: "none",
-      httpOnly: true,
+      // httpOnly: true,
       path: "/",
     });
 
