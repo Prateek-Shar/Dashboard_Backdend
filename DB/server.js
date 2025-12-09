@@ -108,9 +108,11 @@ app.get("/check-auth", async (req, res) => {
   const sessionId = req.cookies.SessionID;
 
   if (!sessionId) {
+    console.log("Session ID not available")
     return res.status(401).json({ message: "Not authenticated" });
   }
 
+  console.log("Session ID available")
   return res.sendStatus(200);
 
 });
