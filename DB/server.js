@@ -26,6 +26,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://insightboard.vercel.app",
+  "https://dashboard-backdend.onrender.com"
 ];
 
 app.use(cors({
