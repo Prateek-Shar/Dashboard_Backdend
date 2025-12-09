@@ -160,7 +160,7 @@ app.post("/UserCheck", async (req, res) => {
       path: "/",
     });
 
-    console.log("Login Successful");
+    console.log("Login Successfull")
 
     return res.status(200).json({
       message: "Login successful",
