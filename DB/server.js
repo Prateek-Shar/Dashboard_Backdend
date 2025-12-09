@@ -158,8 +158,8 @@ app.post("/UserCheck", async (req, res) => {
     res.cookie("SessionID", SessionID, {
       maxAge: 10 * 60 * 1000,
       secure: true,
-      sameSite: "none",
-      // httpOnly: true,
+      sameSite: "None",
+      httpOnly: true,
       path: "/",
     });
 
@@ -187,6 +187,7 @@ app.get("/getUserInfo" , async (req, res) => {
   const sessionId = req.cookies.SessionID;
 
   if (!sessionId) {
+    console.error("No Session ID found in sessions")
     return res.status(401).json({ error: "No session cookie found" });
   }
 
@@ -194,6 +195,7 @@ app.get("/getUserInfo" , async (req, res) => {
     const session = await Session.findOne({ SessionID: sessionId });
 
     if (!session) {
+      console.error("No Session ID found in DB")
       return res.status(401).json({ error: "Invalid or expired session" });
     }
 
