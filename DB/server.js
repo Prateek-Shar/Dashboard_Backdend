@@ -103,19 +103,19 @@ app.post("/newUser", async (req, res) => {
 
 });
 
-app.get("/check-auth", async (req, res) => {
+// app.get("/check-auth", async (req, res) => {
 
-  const sessionId = req.cookies.SessionID;
+//   const sessionId = req.cookies.SessionID;
 
-  if (!sessionId) {
-    console.log("Session ID not available")
-    return res.status(401).json({ message: "Not authenticated" });
-  }
+//   if (!sessionId) {
+//     console.log("Session ID not available")
+//     return res.status(401).json({ message: "Not authenticated" });
+//   }
 
-  console.log("Session ID available")
-  return res.sendStatus(200);
+//   console.log("Session ID available")
+//   return res.sendStatus(200);
 
-});
+// });
 
 
 app.get("/getUserLength" , async(req , res) => {
@@ -193,6 +193,7 @@ app.get("/getUserInfo" , async (req, res) => {
 
   try {
     const session = await Session.findOne({ SessionID: sessionId });
+    console.log("Session ID Found");
 
     if (!session) {
       console.error("No Session ID found in DB")
