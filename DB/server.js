@@ -187,12 +187,14 @@ app.get("/getUserInfo" , async (req, res) => {
   const sessionId = req.cookies.SessionID;
 
   if (!sessionId) {
-    console.error("No Session ID found in sessions")
+    console.error("No Session ID found in sessions");
+    console.info("Session id : " , sessionId )
     return res.status(401).json({ error: "No session cookie found" });
   }
 
   try {
     const session = await Session.findOne({ SessionID: sessionId });
+    console.info("Session id : " , sessionId )
     console.log("Session ID Found");
 
     if (!session) {
