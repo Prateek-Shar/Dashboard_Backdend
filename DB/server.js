@@ -26,7 +26,6 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://insightboard.vercel.app",
-  "https://dashboard-backdend.onrender.com"
 ];
 
 app.use(cors({
@@ -37,13 +36,10 @@ app.use(cors({
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true
+  credentials: true,
+  methods : "GET,POST"
 }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
 
 
 
